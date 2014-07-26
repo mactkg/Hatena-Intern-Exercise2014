@@ -38,4 +38,19 @@ sub time {
   return $converted_time->datetime;
 }
 
+sub to_hash {
+  my $self = shift;
+  my $h;
+  while( my($key, $value) = each %$self) {
+    unless($key =~ /(req|epoch|host)/) {
+      $h->{$key} = $value;
+    }
+  }
+  $h->{time} = $self->time;
+  $h->{uri} = $self->uri;
+  $h->{method} = $self->method;
+
+  return $h;
+}
+
 1;
