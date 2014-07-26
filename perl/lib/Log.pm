@@ -28,7 +28,6 @@ sub path {
 
 sub uri {
   my $self = shift;
-  my $path = $self->path();
   return "http://" . $self->{host} . $self->path();
 }
 
