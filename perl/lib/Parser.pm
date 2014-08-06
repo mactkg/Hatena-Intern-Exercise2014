@@ -19,7 +19,7 @@ sub parse {
         my @splited=split(/:/, $_, 2);
         $splited[0] => $splited[1]
       } grep {
-        /.:[^\-]./
+        /.:[^\-]/
       } split(/\t/, $_)
     );
   } @lines;
